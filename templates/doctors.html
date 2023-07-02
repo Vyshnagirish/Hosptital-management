@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+<title>{% block title %} Doctors {% endblock %}</title>
+
+{% block content %}  
+<h1 class="text-center">Our Doctors</h1><br>
+
+
+    {% comment %} <a href="/view_doctor/{{i.id}}"><img src="/Media/{{ i.doc_images }}" style="width:200px; height:150px"></a><br>
+    <b><a href="/view_doctor/{{i.id}}">{{i.doc_name }}</b></a><br>
+    {{ i.doc_spec }}<br>
+    {{ i.doc_dep }}<br>
+    <br><br> {% endcomment %}
+<div class="container bg-light">
+<div class="row" style="padding-left:60px; padding-top:30px">
+    {% for i in doc %}
+    <div class="col-md-4">
+        <div class="card text-center" style="width: 18rem; display:inline-block">
+            <a href="/view_doctor/{{i.id}}"><img src="/Media/{{ i.doc_images }}" class="card-img-top" alt="..." style="width:18rem; height:150px"></a>
+            <div class="card-body">
+            <a href="/view_doctor/{{i.id}}"><h5 class="card-title">Dr. {{i.doc_name }}</h5></a>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ i.doc_spec }}</h6>
+            <p class="card-text">{{ i.doc_dep }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+<a href="{% url 'add_doctor' %}">Add new Doctor</a>
+
+{% endblock %}

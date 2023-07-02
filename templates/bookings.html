@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+<title>{% block title %} Bookings {% endblock %}</title>
+
+{% block content %}  
+<h1>Bookings</h1><br>
+    <table class="table">
+        <tr>
+            <th>Patient Name</th>
+            <th>Patient Phone Number</th>
+            <th>Patient Email ID</th>
+            <th>Doctor Name</th>
+            <th>Appointment Date</th>
+            <th>Booked On</th>
+        </tr>
+        {% for i in book %}
+        <tr>
+            <td>{{ i.patient_name }}</td>
+            <td>{{ i.patient_phone }}</td>
+            <td>{{ i.patient_email }}</td>
+            <td>{{ i.doctor }}</td>
+            <td>{{ i.appointment_date }}</td>
+            <td>{{ i.booked_on }}</td>
+        </tr>
+    </table>
+        {% endfor %}
+
+<a href="{% url 'add_booking' %}">Make Appointment</a>
+
+{% endblock %}

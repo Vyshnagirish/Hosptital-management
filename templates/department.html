@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+<title>{% block title %} department {% endblock %}</title>
+
+{% block content %}  
+<h1>Our Departments</h1><br>
+
+
+{% for i in dep %}
+    <b>{{ i.dep_name }}</b><br>
+    {{ i.dep_description }}
+    <br><br>
+{% endfor %}
+
+<a href="{% url 'add_department' %}">Add new Department</a>
+
+{% endblock %}

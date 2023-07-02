@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+{% if error %}
+    {{ error }}
+{% endif %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+    {{frm.as_table}}
+    </table>
+    <button type="submit" class="btn btn-primary">ADD</button>    
+    <a href="{% url 'department' %}" class="btn btn-warning">CANCEL</a>
+</form>
+{% endblock %}

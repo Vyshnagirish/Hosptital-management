@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}DOCTORS {% endblock%}
+{% block content %}
+{% if error %}
+    {{ error }}
+{% endif %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+    {{frm.as_table}}
+    </table>
+    <button type="submit" class="btn btn-primary">ADD</button>    
+    <a href="{% url 'doctors' %}" class="btn btn-warning">CANCEL</a>
+</form>
+{% endblock %}
